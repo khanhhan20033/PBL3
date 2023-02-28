@@ -1,13 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>minhvu</p>
-</body>
-</html> 
-dsdsds
+// Creating a website that looks like the link provided
+const express = require("express");
+const app = express();
+const port = 3000;
+
+// Creating a homepage
+app.get("/", (req, res) => {
+    res.send(`
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Pizza Restaurant Website</title>
+            <style type="text/css">
+                body {
+                  background-color: #f2f2f2;
+                }
+                h1 {
+                  font-size: 22px;
+                  font-family: Arial;
+                  text-align: center;
+                }
+                p { 
+                  font-size: 16px;
+                  font-family: Helvetica;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Welcome to Pizza Restaurant!</h1>
+            <p>At Pizza Restaurant, we offer delicious and handcrafted pizzas.</p>
+            <p>Choose from our large selection of toppings and crusts, and enjoy your meal.</p>
+            <p>We also have a catering menu for parties and special occasions.</p>
+            <form action="order.php" method="post">
+                <h2>Make a reservation</h2>
+                Your Name: <input type="text" name="name"><br><br>
+                Phone Number: <input type="text" name="phone"><br><br>
+                Pizza Order: <input type="text" name="pizza"><br><br>
+                Number of Guests: <input type="number" name="guests"><br><br>
+                Date: <input type="date" name="date"><br><br>
+                Time: <input type="time" name="time"><br><br>
+                <input type="submit">
+            </form>
+        </body>
+    </html>
+    `);
+  });
+  
+  // Run server on port 3000
+  app.listen(port, () => console.log(`Server is running on port ${port}!`));
